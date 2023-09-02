@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import './tailwind.css';
 import './App.css'
 import Dropdown from './Dropdown';
 
@@ -65,18 +64,24 @@ function App() {
   };
 
   return (
-    <div>
+    <div className='w-full'>
       <Dropdown onValueChange={handleSelectedCategoryValueChange} />
       <hr/>
       {/* <p>Min. words:</p> */}
-      <textarea 
-        value={textQuery} 
-        onChange={handleTextQueryChange} 
-        placeholder="Enter instructions here..."
-      />
-      <button onClick={handleOpenAICall}>
-        Submit
-      </button>
+      <div className="flex flex-col gap-4">
+        <textarea 
+          className="w-full"
+          value={textQuery} 
+          onChange={handleTextQueryChange} 
+          placeholder="Enter instructions here..."
+        />
+        <button
+          className=''
+          onClick={handleOpenAICall}>
+          Submit
+        </button>
+      </div>
+      
       <hr />
       {result && (
           <div className="mt-4 p-4 bg-gray-200 rounded">
