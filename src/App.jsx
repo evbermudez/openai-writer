@@ -24,14 +24,14 @@ function App() {
 
     const endpointUrl = import.meta.env.VITE_OPENAPI_ENDPOINT_URL;
     const apiKey = import.meta.env.VITE_OPENAPI_API_KEY;
-    setMinimumWords(500);
-
+    setMinimumWords('500');
+    console.log(`Help me write up  a ${selectedCategory} about ${textQuery} with minimum words of ${minimumWords}. can you make it possible for me to copy and paste easily? with correct spacing`)
     // The body of your request (e.g., a prompt for GPT-3)
     const requestBody = {
       messages: [
         { 
           role: 'system',
-          content: `Help me write up  a :${selectedCategory} about ${textQuery} with minimum words of ${minimumWords}` 
+          content: `Help me write up  a ${selectedCategory} about ${textQuery} with minimum words of ${minimumWords}. can you make it possible for me to copy and paste easily? with correct spacing` 
         },
         { 
           role: 'user',
@@ -81,7 +81,7 @@ function App() {
       {result && (
           <div className="mt-4 p-4 bg-gray-200 rounded">
             <strong>result:</strong>
-            <p>{result}</p>
+            <pre>{result}</pre>
           </div>
         )}
     </div>

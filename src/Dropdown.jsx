@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Dropdown() {
+function Dropdown({ onValueChange}) {
   const [selectedCategory, setSelectedCategory] = useState('');
 
   const contentTypes = [
@@ -16,9 +16,14 @@ function Dropdown() {
     "Interviews"
   ];
 
+  const handleChange = (e) => {
+    onValueChange(e.target.value);
+    setSelectedCategory(e.target.value);
+  }
+
   return (
     <div>
-      <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+      <select value={selectedCategory} onChange={handleChange}>
         <option value="" disabled>Select content type</option>
         {contentTypes.map(type => (
           <option key={type} value={type}>{type}</option>
