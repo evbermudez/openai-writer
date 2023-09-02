@@ -3,10 +3,17 @@ import axios from 'axios';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Dropdown from './Dropdown';
 
 function App() {
   const [textQuery, setTextQuery] = useState('');
   const [result, setResult] = useState('');
+  const [minimumWords, setMinimumWords] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+
+  const handleSelectedCategoryValueChange = (value) => {
+    setSelectedCategory(value);
+  }
 
   const handleTextQueryChange = (e) => {
     setTextQuery(e.target.value);
@@ -17,13 +24,14 @@ function App() {
 
     const endpointUrl = import.meta.env.VITE_OPENAPI_ENDPOINT_URL;
     const apiKey = import.meta.env.VITE_OPENAPI_API_KEY;
+    setMinimumWords(500);
 
     // The body of your request (e.g., a prompt for GPT-3)
     const requestBody = {
       messages: [
         { 
           role: 'system',
-          content: `Help me write about: ${textQuery}` 
+          content: `Help me write up  a :${selectedCategory} about ${textQuery} with minimum words of ${minimumWords}` 
         },
         { 
           role: 'user',
@@ -58,6 +66,9 @@ function App() {
 
   return (
     <div>
+      <Dropdown onValueChange={handleSelectedCategoryValueChange} />
+      <hr/>
+      {/* <p>Min. words:</p> */}
       <textarea 
         value={textQuery} 
         onChange={handleTextQueryChange} 
