@@ -1,8 +1,3 @@
-# React + Vite
+Openai-Writer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![aaaaaaaaa](https://github.com/evbermudez/openai-writer/assets/5260098/516b8e22-0eb8-4d2a-a0dd-683ed8c95bcc)
