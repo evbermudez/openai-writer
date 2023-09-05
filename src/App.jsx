@@ -84,7 +84,7 @@ function App() {
       
       <hr />
       {result && (
-          <div className="mt-4 p-4 bg-gray-200 rounded">
+          <div className="mt-4 p-4 rounded">
             <strong>result:</strong>
             <pre>{result}</pre>
           </div>
